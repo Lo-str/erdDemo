@@ -4,7 +4,7 @@
 ```bash
 npm init -y
 npm install express dotenv @prisma/client @prisma/extension-accelerate prisma zod
-npm install -D typescript ts-node tsx nodemon @types/node @types/express eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier @types/node
+npm install -D typescript@5 ts-node tsx nodemon @types/node @types/express eslint @eslint/js  @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier @types/node
 ```
 
 ## 2. Configure package.json
