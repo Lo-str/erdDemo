@@ -18,6 +18,7 @@ app.use(express.json())
 const prisma = new PrismaClient({
   accelerateUrl: process.env.DATABASE_URL!,
 }).$extends(withAccelerate())
+const port = 3000
 
   //****************************************//
  //                SCHEMAS                 //
@@ -108,6 +109,9 @@ app.patch("/products/:productId", async (req, res) => {
 // DELETE /orders/:orderId
 app.delete("/orders/:orderId", async (req, res) => {
   try {
+    await prisma.orderItem.deleteMany({
+      where: { orderId: Number(req.params.orderId) }
+    })
     const deleted = await prisma.order.delete({
       where: { id: Number(req.params.orderId) }
     })
@@ -115,4 +119,9 @@ app.delete("/orders/:orderId", async (req, res) => {
   } catch (error) {
     sendError(res, 500, error)
   }
+})
+
+
+app.listen(3000, () => {
+  console.log(`Server listen on port ${port}`)
 })
