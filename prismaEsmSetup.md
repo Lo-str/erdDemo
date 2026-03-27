@@ -3,8 +3,9 @@
 ## 1. Initialize the project
 ```bash
 npm init -y
-npm install express dotenv @prisma/client @prisma/extension-accelerate prisma zod
-npm install -D typescript@5 ts-node tsx nodemon @types/node @types/express eslint @eslint/js  @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier @types/node
+npm install express dotenv @prisma/client @prisma/extension-accelerate prisma  @prisma/adapter-pg pg zod
+
+npm install -D typescript@5 ts-node tsx nodemon @types/node @types/express eslint @eslint/js  @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier @types/node @types/pg
 ```
 
 ## 2. Configure package.json
@@ -137,6 +138,7 @@ npx tsc --init
     "moduleDetection": "force",
     "skipLibCheck": true
   }
+  "include": ["src/**/*"]
 }
 ```
 Create `src` folder at the root
